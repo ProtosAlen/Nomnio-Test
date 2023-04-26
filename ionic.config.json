@@ -1,0 +1,10 @@
+{
+  "defaultProject": "nomnio-test",
+  "projects": {
+    "nomnio-test": {
+      "name": "nomnio-test",
+      "integrations": {},
+      "type": "angular"
+    }
+  }
+}
