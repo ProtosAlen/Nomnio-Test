@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="fixed_header">
+  <h2>Nomnio Test</h2>
+</div>
 
-<ion-content class="ion-padding">
-  <ion-button [routerLink]="['/detail']">Go to detail</ion-button>
+
+<ion-content>
+
+  <div class="resizable_content">
+    <div *ngIf="!this.dd[0]">
+      <p>Click to load</p>
+      <button (click)="loadWeather();">Load</button>
+    </div>
+
+    <div *ngIf="this.dd[0] != undefined">
+      <div class="timestamp">
+        <p class="city">Maribor {{this.weather.name}}</p>
+        <p class="date">{{this.refreshTime}}</p>
+      </div>
+
+      <div class="forecasts">
+        <div class="forecast_now">
+          <p class="data">{{this.weather.currentTemperature}}°C</p>
+          <p class="data">{{this.weather.description}}</p>
+          <p class="data">{{this.weather.minTemperature}}°C - {{this.weather.maxTemperature}}°C</p>
+        </div>
+
+        <div class="forecast_five">
+          <p class="data">{{this.dd[0].date}} - {{this.dd[0].maxTemperature}}°C</p>
+          <p class="data">{{this.dd[1].date}} - {{this.dd[1].maxTemperature}}°C</p>
+          <p class="data">{{this.dd[2].date}} - {{this.dd[2].maxTemperature}}°C</p>
+          <p class="data">{{this.dd[3].date}} - {{this.dd[3].maxTemperature}}°C</p>
+          <p class="data">{{this.dd[4].date}} - {{this.dd[4].maxTemperature}}°C</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </ion-content>
