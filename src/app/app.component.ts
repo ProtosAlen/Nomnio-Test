@@ -3,6 +3,7 @@ import { WeatherData, ForecastDetails } from './models/forecast';
 import { ForecastService } from './services/forecast.service';
 import { keyframes } from '@angular/animations';
 import * as moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ import * as moment from 'moment';
 export class AppComponent {
   title = 'nomnio-test';
 
+  languages = ['EN', 'SL'];
+
   weather: WeatherData = new WeatherData();
   forecast: ForecastDetails[] = ForecastDetails[0];
 
@@ -19,9 +22,15 @@ export class AppComponent {
 
   public dd: Array<ForecastDetails> = new Array<ForecastDetails>();
 
-  constructor(private forecastService: ForecastService) {
+  constructor(private forecastService: ForecastService, public translate: TranslateService) {
+    translate.use('sl');
+
     moment.locale('sl');
     this.refreshTime = moment().format('DD.MM.YYYY [ob] h:mm');;
+  }
+
+  changeLang(l: string) {
+    this.translate.use(l.toLocaleLowerCase());
   }
 
   loadWeather() {

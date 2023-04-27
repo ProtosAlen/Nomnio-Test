@@ -6,9 +6,14 @@
 <ion-content>
 
   <div class="resizable_content">
+
+    <ul *ngFor="let language of languages">
+      <li (click)="changeLang(language);" class="lang"> > {{ 'LANGUAGES.' + language | translate }}</li>
+    </ul>
+
     <div *ngIf="!this.dd[0]">
-      <p>Click to load</p>
-      <button (click)="loadWeather();">Load</button>
+      <p>{{ 'CLICK_TO_LOAD' | translate  }}</p>
+      <button (click)="loadWeather();">{{ 'LOAD' | translate  }}</button>
     </div>
 
     <div *ngIf="this.dd[0] != undefined">
