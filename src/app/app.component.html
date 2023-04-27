@@ -11,14 +11,16 @@
       <li (click)="changeLang(language);" class="lang"> > {{ 'LANGUAGES.' + language | translate }}</li>
     </ul>
 
-    <div *ngIf="!this.dd[0]">
+
+    <div>
       <p>{{ 'CLICK_TO_LOAD' | translate  }}</p>
       <button (click)="loadWeather();">{{ 'LOAD' | translate  }}</button>
+      <hr>
     </div>
 
-    <div *ngIf="this.dd[0] != undefined">
+    <div>
       <div class="timestamp">
-        <p class="city">Maribor {{this.weather.name}}</p>
+        <p class="city">{{this.weather.cityName}}</p>
         <p class="date">{{this.refreshTime}}</p>
       </div>
 
@@ -30,11 +32,11 @@
         </div>
 
         <div class="forecast_five">
-          <p class="data">{{this.dd[0].date}} - {{this.dd[0].maxTemperature}}°C</p>
-          <p class="data">{{this.dd[1].date}} - {{this.dd[1].maxTemperature}}°C</p>
-          <p class="data">{{this.dd[2].date}} - {{this.dd[2].maxTemperature}}°C</p>
-          <p class="data">{{this.dd[3].date}} - {{this.dd[3].maxTemperature}}°C</p>
-          <p class="data">{{this.dd[4].date}} - {{this.dd[4].maxTemperature}}°C</p>
+          <p class="data">{{this.dd[0].date}} - {{this.dd[0].currentTemperature}}°C</p>
+          <p class="data">{{this.dd[1].date}} - {{this.dd[1].currentTemperature}}°C</p>
+          <p class="data">{{this.dd[2].date}} - {{this.dd[2].currentTemperature}}°C</p>
+          <p class="data">{{this.dd[3].date}} - {{this.dd[3].currentTemperature}}°C</p>
+          <p class="data">{{this.dd[4].date}} - {{this.dd[4].currentTemperature}}°C</p>
         </div>
       </div>
 
