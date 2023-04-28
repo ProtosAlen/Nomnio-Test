@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$bg_color: #e9e4ed;
+$txt_color: #191919;
+
+html,
+body {
+  margin: 0;
+  text-align: center;
+  color: $txt_color;
+  background-color: $bg_color ;
+}
