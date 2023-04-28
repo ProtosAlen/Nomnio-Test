@@ -13,6 +13,7 @@
 
 
     <div>
+      <p *ngIf="loading">{{ 'LOADING' | translate  }}</p>
       <p>{{ 'CLICK_TO_LOAD' | translate  }}</p>
       <button (click)="loadWeather();">{{ 'LOAD' | translate  }}</button>
       <hr>

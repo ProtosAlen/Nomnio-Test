@@ -18,19 +18,19 @@ export class AppComponent {
   forecast: ForecastDetails[] = ForecastDetails[0];
 
   refreshTime: string;
+  loading: boolean;
 
   dd: Array<ForecastDetails> = new Array<ForecastDetails>();
 
   constructor(private forecastService: ForecastService, public translate: TranslateService) {
     translate.use('sl');
-
     moment.locale('sl');
-
-
   }
 
   ngOnInit() {
     this.loadData();
+
+    //this.loadWeather(); - Load Weather on Init
   }
 
   loadData() {
@@ -57,6 +57,7 @@ export class AppComponent {
   }
 
   loadWeather() {
+    this.loading = true;
     this.forecastService.LoadWeather().subscribe(
       res => {
 
@@ -91,14 +92,11 @@ export class AppComponent {
           n++;
 
           this.dd.push(details);
-
-
-
-          console.log(this.dd)
         }
-
+        this.loading = false;
       }
     )
+
   }
 
 
